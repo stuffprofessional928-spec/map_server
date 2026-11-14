@@ -7,7 +7,9 @@ authors = [
     { name = "Vijay Singh", email = "svijayvikram00@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pillow>=13.0.0",
+]
 
 [project.scripts]
 mcp-ser = "mcp_ser:main"

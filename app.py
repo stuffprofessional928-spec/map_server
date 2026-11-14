@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from agents import Agent,Runner, set_tracing_disabled, function_tool, OpenAIChatCompletionsModel
 from agents.mcp import MCPServerStdio
+from backend.accounts import Account
 
 
 
@@ -17,3 +18,12 @@ openrouter_url = os.getenv("OPENROUTER_URL")
 client = AsyncOpenAI(base_url=openrouter_url, api_key=openrouter_key)
 MODEL = "gpt-5.4-mini"
 model = OpenAIChatCompletionsModel(model=MODEL, openai_client=client)
+
+
+account = Account.get("Ed")
+account.buy_shares("AMZN", 3,"Because it looks promising to me")
+print(account)
+# account.reset()
+
+
+print(account.report())
